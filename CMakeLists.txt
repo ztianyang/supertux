@@ -137,7 +137,7 @@ else(ENABLE_BOOST_STATIC_LIBS)
   set(Boost_USE_STATIC_LIBS FALSE)
 endif(ENABLE_BOOST_STATIC_LIBS)
 find_package(Boost REQUIRED COMPONENTS filesystem system date_time locale)
-include_directories(SYSTEM ${Boost_INCLUDE_DIR})
+include_directories(SYSTEM ${BOOST_INCLUDE_DIRS})
 link_directories(${Boost_LIBRARY_DIRS})
 
 find_package(PNG REQUIRED)
