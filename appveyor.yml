@@ -20,6 +20,7 @@ cache: c:\tools\vcpkg\installed -> appveyor.yml
 install:
 - cd C:\Tools\vcpkg
 - git pull
+- git reset --hard 70ab27fcad50241d72e0fe235ec4012f0ce7551e
 - .\bootstrap-vcpkg.bat
 - cd %APPVEYOR_BUILD_FOLDER%
 
