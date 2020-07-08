@@ -1093,7 +1093,7 @@ mark_as_advanced(
   )
 
 mark_as_advanced(
-  Boost_INCLUDE_DIR
+  Boost_INCLUDE_DIRS
   Boost_LIBRARIES
   )
 
