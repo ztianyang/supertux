@@ -95,7 +95,6 @@ jobs:
             libogg-dev \
             libvorbis-dev \
             libopenal-dev \
-            libboost-all-dev \
             libsdl2-dev \
             libsdl2-image-dev \
             libfreetype6-dev \
@@ -110,7 +109,6 @@ jobs:
             lcov
           sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-10 10
           sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-10 10
-          sudo patch /usr/include/boost/format/alt_sstream_impl.hpp mk/ubuntu/boost-allocator.patch
       - name: Install 32-bit linux dependencies
         if: ${{ matrix.os == 'ubuntu-latest' && matrix.arch == 32 }}
         run: |
@@ -144,9 +142,6 @@ jobs:
             libogg-dev:i386 \
             libvorbis-dev:i386 \
             libopenal-dev:i386 \
-            libboost-date-time-dev:i386 \
-            libboost-filesystem-dev:i386 \
-            libboost-locale-dev:i386 \
             libsdl2-dev:i386 \
             libsdl2-image-dev:i386 \
             libfreetype6-dev:i386 \
@@ -158,7 +153,6 @@ jobs:
           # Nethier GLEW nor glbinding exist in 32-bit for Ubuntu 20.04, so snatch the debs from 16.04 instead
           wget archive.ubuntu.com/ubuntu/pool/main/g/glew/libglew1.13_1.13.0-2_i386.deb && sudo dpkg -i libglew1.13_1.13.0-2_i386.deb
           wget archive.ubuntu.com/ubuntu/pool/main/g/glew/libglew-dev_1.13.0-2_i386.deb && sudo dpkg -i libglew-dev_1.13.0-2_i386.deb
-          sudo patch /usr/include/boost/format/alt_sstream_impl.hpp mk/ubuntu/boost-allocator.patch
       - name: Install macos dependencies
         if: ${{ matrix.os == 'macos-10.15' ||  matrix.os == 'macos-11' }}
         run: |
@@ -324,12 +318,6 @@ jobs:
         run: |
           vcpkg integrate install
           vcpkg install gtest:$Env:ARCH-windows
-          vcpkg install boost-date-time:$Env:ARCH-windows
-          vcpkg install boost-filesystem:$Env:ARCH-windows
-          vcpkg install boost-iostreams:$Env:ARCH-windows
-          vcpkg install boost-locale:$Env:ARCH-windows
-          vcpkg install boost-optional:$Env:ARCH-windows
-          vcpkg install boost-system:$Env:ARCH-windows
           vcpkg install curl:$Env:ARCH-windows
           vcpkg install --recurse freetype:$Env:ARCH-windows
           vcpkg install glew:$Env:ARCH-windows
