@@ -102,7 +102,6 @@ EOF
             buildInputs = [
               raqm
 
-              pkgs.boost
               pkgs.curl
               pkgs.fribidi
               pkgs.harfbuzz
@@ -119,7 +118,6 @@ EOF
               pkgs.openal
               pkgs.libvorbis
               pkgs.libogg
-              pkgs.gtest
             ];
            };
         };
