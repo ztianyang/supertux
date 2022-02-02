@@ -105,6 +105,7 @@ EOF
               pkgs.curl
               pkgs.fribidi
               pkgs.harfbuzz
+              pkgs.fmt_8
               pkgs.freetype
               pkgs.libGL
               pkgs.libGLU
